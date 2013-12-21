@@ -1,12 +1,12 @@
 # PHP Benchmark library
-More info soon
+Check how much time it takes to perform something
 
 ## Concept
 
-+ Initialize a new benchmark session by passing an unique name to `create` 
-+ `start` benchmarking of type `(Memory/Time)` - specify an unique name if needed
-+ `end` it when needed (specify  `type` if more than one is enabled atm)
-+ `report` using custom `Handler`
++ Initialize a new benchmark session by passing an unique id to `create` 
++ `start` benchmarking by passing an unique id
++ `end` it (specify  `id` if more than one is enabled at the moment)
++ `report` using `Handler`
 
 
 ## License
