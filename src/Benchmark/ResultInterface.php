@@ -15,5 +15,6 @@ interface ResultInterface
     public function setResourcesUsage ($usage);
     
     public function report ();
+    public function getClone ();
 }
 
