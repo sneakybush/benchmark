@@ -11,19 +11,19 @@ namespace Benchmark;
 
 class Benchmark
 {
-    private $_id, $_dataDir, $_resultObj, $_handlerStack;
+    private $_id, $_resultObj, $_handlerStack;
     
     private $_results = [];
     
     private $_currentId = null, $_currentTime = 0;
     
-    public static function create ($id, $dataDir, $resultObj)
+    public static function create ($id, $resultObj)
     {
-        $instance = (new static ($id, $dataDir, $resultObj));
+        $instance = (new static ($id, $resultObj));
         return $instance;
     }
     
-    public function __construct ($id, $dataDir, ResultInterface $resultObj)
+    public function __construct ($id, ResultInterface $resultObj)
     {
         $this->_handlerStack = new \SplStack ();
         // just to make it obvious & easy to change
@@ -33,7 +33,6 @@ class Benchmark
         );
         
         $this->_id        = $id        ;
-        $this->_dataDir   = $dataDir   ;
         $this->_resultObj = $resultObj ;
     }
     
