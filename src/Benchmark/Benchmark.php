@@ -26,11 +26,6 @@ class Benchmark
     public function __construct ($id, ResultInterface $resultObj)
     {
         $this->_handlerStack = new \SplStack ();
-        // just to make it obvious & easy to change
-        $this->_handlerStack->setIteratorMode (
-            \SplDoublyLinkedList::IT_MODE_FIFO
-                | \SplDoublyLinkedList::IT_MODE_KEEP
-        );
         
         $this->_id        = $id        ;
         $this->_resultObj = $resultObj ;

@@ -22,7 +22,9 @@ class FileHandler implements HandlerInterface
     
     public function setOutputFile ($file)
     {
-        if (is_readable ($file) && is_writeable ($file))
+        $dir = dirname ($file);
+        
+        if (is_writeable ($dir))
         {
             $this->_outputFile = $file;
             return true;
