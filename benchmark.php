@@ -9,8 +9,28 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Benchmark\Handler\PrintHandler;
+use Benchmark\Handler\FileHandler;
 use Benchmark\Benchmark;
 use Benchmark\Result;
 
+function factorial ($number)
+{
+    if (1 === $number)
+    {
+        return $number;
+    }
+    
+    return factorial ($number - 1) * $number;
+}
 
+/* @var $benchmark Benchmark */
+$benchmark = Benchmark::create ('factorial', new Result ());
+$benchmark->pushHandler (new FileHandler ());
+
+$benchmark->start ('factorial of 10');
+
+    $data = factorial (10);
+
+$benchmark->end ();
+
+$benchmark->report ();
