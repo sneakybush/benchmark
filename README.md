@@ -1,5 +1,5 @@
 # PHP Benchmark library
-Check how much time it takes to perform something
+__(IN DEVELOPMENT)__ Check how much time it takes to perform something
 
 ## Concept
 
