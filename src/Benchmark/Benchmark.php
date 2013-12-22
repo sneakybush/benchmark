@@ -50,7 +50,24 @@ class Benchmark
     
     public function end ()
     {
+        if ( is_null ($this->_currentId) )
+        {
+            throw new \LogicException ();
+        }
         
+        $result = $this->_resultObj->getClone ();
+        
+        /* @var $result Benchmark\ResultInterface */
+        
+        $result->setId ($this->_currentId);
+        $result->setResourcesUsage (
+            ($this->_getCurrentTime () - $this->_currentTime)
+        );
+        
+        $this->_results [] = $result;
+        
+        $this->_currentId   = null;
+        $this->_currentTime = null;
     }
     
     public function pushHandler (Handler\HandlerInterface $handler)
