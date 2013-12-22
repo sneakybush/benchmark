@@ -15,6 +15,8 @@ class Benchmark
     
     private $_results = [];
     
+    private $_currentId = null, $_currentTime = 0;
+    
     public static function create ($id, $dataDir, $resultObj)
     {
         $instance = (new static ($id, $dataDir, $resultObj));
@@ -37,7 +39,13 @@ class Benchmark
     
     public function start ($id)
     {
+        if ( ! is_null ($this->_currentId) )
+        {
+            $this->end ();
+        }
         
+        $this->_currentId   = (string) $id;
+        $this->_currentTime = $this->_getCurrentTime ();
     }
     
     public function end ()
@@ -53,5 +61,11 @@ class Benchmark
     public function report ()
     {
         
+    }
+    
+    private function _getCurrentTime ()
+    {
+        // $get_as_float = true
+        return microtime (true);
     }
 }
