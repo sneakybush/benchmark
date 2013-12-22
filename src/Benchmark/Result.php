@@ -20,7 +20,7 @@ class Result implements ResultInterface
 
     public function report ()
     {
-        return "Started '{$this->_id}': took {$this->_time} to perform \n";
+        return "Started '{$this->_id}': took {$this->_time} to perform operation\n";
     }
 
     public function setId ($id)

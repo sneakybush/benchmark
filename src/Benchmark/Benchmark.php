@@ -55,7 +55,7 @@ class Benchmark
         
         $result->setId ($this->_currentId);
         $result->setTimeUsed (
-            ($this->_getCurrentTime () - $this->_startTime)
+            number_format ($this->_getCurrentTime () - $this->_startTime, 5)
         );
         
         $this->_results [] = $result;
