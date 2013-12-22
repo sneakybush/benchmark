@@ -13,6 +13,8 @@ class Benchmark
 {
     private $_id, $_dataDir, $_resultObj, $_handlerStack;
     
+    private $_results = [];
+    
     public static function create ($id, $dataDir, $resultObj)
     {
         $instance = (new static ($id, $dataDir, $resultObj));
@@ -45,7 +47,7 @@ class Benchmark
     
     public function pushHandler (Handler\HandlerInterface $handler)
     {
-        
+        $this->_handlerStack->push ($handler);
     }
     
     public function report ()
