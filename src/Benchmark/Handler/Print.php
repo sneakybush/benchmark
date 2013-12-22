@@ -28,7 +28,7 @@ class PrintHandler implements HandlerInterface
         }
     }
     
-    public function setBenchmarkId ($id)
+    public function setBenchmarkId ()
     {
         // no implementation needed
     }

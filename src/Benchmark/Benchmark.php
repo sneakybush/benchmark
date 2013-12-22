@@ -15,7 +15,7 @@ class Benchmark
     
     private $_results = [];
     
-    private $_currentId = null, $_currentTime = 0;
+    private $_currentId = null, $_startTime = 0;
     
     public static function create ($id, $resultObj)
     {
@@ -44,7 +44,7 @@ class Benchmark
         }
         
         $this->_currentId   = (string) $id;
-        $this->_currentTime = $this->_getCurrentTime ();
+        $this->_startTime   = $this->_getCurrentTime ();
     }
     
     public function end ()
@@ -59,14 +59,14 @@ class Benchmark
         /* @var $result Benchmark\ResultInterface */
         
         $result->setId ($this->_currentId);
-        $result->setResourcesUsage (
-            ($this->_getCurrentTime () - $this->_currentTime)
+        $result->setTimeUsed (
+            ($this->_getCurrentTime () - $this->_startTime)
         );
         
         $this->_results [] = $result;
         
         $this->_currentId   = null;
-        $this->_currentTime = null;
+        $this->_startTime   = null;
     }
     
     public function pushHandler (Handler\HandlerInterface $handler)

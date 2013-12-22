@@ -11,7 +11,7 @@ namespace Benchmark;
 
 class Result implements ResultInterface
 {
-    private $_id, $_usage;
+    private $_id, $_time = 0;
     
     public function getClone ()
     {
@@ -20,7 +20,7 @@ class Result implements ResultInterface
 
     public function report ()
     {
-        return "Started '{$this->_id}': took {$this->_usage} to perform \n";
+        return "Started '{$this->_id}': took {$this->_time} to perform \n";
     }
 
     public function setId ($id)
@@ -28,8 +28,8 @@ class Result implements ResultInterface
         $this->_id = $id;
     }
 
-    public function setResourcesUsage ($usage)
+    public function setTimeUsed ($time)
     {
-        $this->_usage = $usage;
+        $this->_time = $time;
     }
 }

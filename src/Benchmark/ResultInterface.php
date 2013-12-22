@@ -12,7 +12,7 @@ namespace Benchmark;
 interface ResultInterface 
 {
     public function setId ($id);
-    public function setResourcesUsage ($usage);
+    public function setTimeUsed ($time);
     
     public function report ();
     public function getClone ();
