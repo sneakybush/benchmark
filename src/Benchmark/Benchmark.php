@@ -32,4 +32,24 @@ class Benchmark
         $this->_dataDir   = $dataDir   ;
         $this->_resultObj = $resultObj ;
     }
+    
+    public function start ($id)
+    {
+        
+    }
+    
+    public function end ()
+    {
+        
+    }
+    
+    public function pushHandler (Handler\HandlerInterface $handler)
+    {
+        
+    }
+    
+    public function report ()
+    {
+        
+    }
 }
