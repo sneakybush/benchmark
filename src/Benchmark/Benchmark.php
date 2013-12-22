@@ -77,7 +77,18 @@ class Benchmark
     
     public function report ()
     {
-        
+        while ( $this->_handlerStack->valid () )
+        {
+            /* @var $handler Benchmark\Handler\HandlerInterface */
+            $handler = $this->_handlerStack->pop ();
+            
+            foreach ($this->_results as $result)
+            {
+                $handler->append ($result);
+            }
+            
+            $handler->persist ();
+        }
     }
     
     private function _getCurrentTime ()
