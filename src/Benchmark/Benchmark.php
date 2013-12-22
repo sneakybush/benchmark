@@ -72,6 +72,7 @@ class Benchmark
     
     public function pushHandler (Handler\HandlerInterface $handler)
     {
+        $handler->setBenchmarkId ($this->_id);
         $this->_handlerStack->push ($handler);
     }
     

@@ -13,5 +13,6 @@ interface HandlerInterface
 {
     public function append (\Benchmark\ResultInterface $result);
     public function persist ();
+    public function setBenchmarkId ($id);
 }
 

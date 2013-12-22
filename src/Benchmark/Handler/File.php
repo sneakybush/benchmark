@@ -13,7 +13,7 @@ class FileHandler implements HandlerInterface
 {
     private $_resultCollection = [];
     
-    private $_outputFile;
+    private $_outputFile, $_benchmarkId;
     
     public function append (\Benchmark\ResultInterface $result)
     {
@@ -46,5 +46,11 @@ class FileHandler implements HandlerInterface
         }, $this->_resultCollection));
         
         file_put_contents ($this->_outputFile, $data, FILE_APPEND);
+    }
+    
+    public function setBenchmarkId ($id)
+    {
+        $this->setOutputFile (__DIR__ . "/../../../data/{$id}.txt");
+        $this->_benchmarkId = $id;
     }
 }

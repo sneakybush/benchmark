@@ -27,4 +27,9 @@ class PrintHandler implements HandlerInterface
             print $result->report ();
         }
     }
+    
+    public function setBenchmarkId ($id)
+    {
+        // no implementation needed
+    }
 }
